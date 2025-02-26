@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/navigation_sale_fragment"
+        android:icon="@drawable/icon_learn"
+        android:title="Sell"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/navigation_agrinews_fragment"
+        android:icon="@drawable/icon_news"
+        android:title="Agri-News"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/navigation_home_fragment"
+        android:icon="@drawable/icon_home"
+        android:title="Home"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/navigation_learn_fragment"
+        android:icon="@drawable/icon_learn"
+        android:title="Learn"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/navigation_profile_fragment"
+        android:icon="@drawable/icon_user"
+        android:title="Profile"
+        app:showAsAction="always"/>
+
+</menu>

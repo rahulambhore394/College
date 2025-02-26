@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".HomeFragment.HomeFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:elevation="4dp" />
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/customSearchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp"
+        android:background="@drawable/search_background"
+        android:iconifiedByDefault="false"
+        android:hint="Find a language, course"
+        android:layout_below="@id/toolbar"
+        app:iconifiedByDefault="false"
+        app:queryBackground="@android:color/transparent"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/customSearchView"
+        android:layout_centerHorizontal="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_weather"
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="@dimen/_130sdp"
+                android:layout_margin="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="8dp"
+                android:layout_alignParentLeft="true"
+                android:backgroundTint="#E6EAE3F4">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/tvWeatherInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:text="Weather Info"
+                        android:gravity="center"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentLeft="true"
+                        android:fontFamily="sans-serif-condensed-medium"/>
+
+                    <TextView
+                        android:id="@+id/tvCity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:text="City"
+                        android:gravity="center"
+                        android:layout_below="@id/tvWeatherInfo"/>
+
+
+                    <TextView
+                        android:id="@+id/tvTemperature"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:text="29.52.C"
+                        android:gravity="center"
+                        android:layout_below="@id/tvCity"/>
+
+                    <ImageView
+                        android:id="@+id/imgWeather"
+                        android:layout_width="@dimen/_50sdp"
+                        android:layout_height="@dimen/_50sdp"
+                        android:layout_below="@id/tvTemperature"/>
+
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_budget"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_130sdp"
+                android:layout_margin="16dp"
+                app:cardCornerRadius="16dp"
+                android:layout_alignParentRight="true"
+                app:cardElevation="8dp"
+                android:backgroundTint="#E6EAE3F4">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/tvCurrentBudget"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:text="Weather Info"
+                        android:gravity="center"
+                        android:padding="10dp"/>
+
+                    <TextView
+                        android:id="@+id/tvBudgetAmount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:text="Weather Info"
+                        android:gravity="center"
+                        android:padding="10dp"/>
+
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_lessons"
+                android:text="Your Lessons"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:layout_below="@id/card_weather"
+                android:layout_margin="@dimen/_13sdp"
+                android:textSize="@dimen/_14sdp"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/small_card_layout"
+                android:layout_below="@id/tv_lessons"
+                android:layout_centerHorizontal="true">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="@dimen/_130sdp"
+                    android:layout_height="@dimen/_150sdp"
+                    android:id="@+id/card_reading"
+                    android:layout_margin="@dimen/_5sdp"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    app:cardBackgroundColor="@color/white">
+                                        <RelativeLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent">
+                                            <ImageView
+                                                android:layout_width="@dimen/_50sdp"
+                                                android:layout_height="@dimen/_50sdp"
+                                                android:id="@+id/icon_msp_info"
+                                                android:src="@drawable/icon_msp"
+                                                android:layout_marginTop="@dimen/_10sdp"
+                                                android:layout_marginLeft="@dimen/_10sdp"/>
+
+                                            <TextView
+                                                android:id="@+id/tv_msp"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_below="@id/icon_msp_info"
+                                                android:layout_marginLeft="@dimen/_13sdp"
+                                                android:layout_marginTop="@dimen/_5sdp"
+                                                android:fontFamily="sans-serif-condensed-medium"
+                                                android:text="MSP Info"
+                                                android:textSize="@dimen/_16sdp"
+                                                android:textStyle="bold"/>
+                                            <TextView
+                                                android:id="@+id/tv_msp_description"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_below="@id/tv_msp"
+                                                android:layout_marginLeft="@dimen/_13sdp"
+                                                android:layout_marginTop="@dimen/_5sdp"
+                                                android:fontFamily="sans-serif-condensed-medium"
+                                                android:text="Market Support Price"
+                                                android:textSize="@dimen/_11sdp"
+                                                android:textStyle="italic"/>
+                                        </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="@dimen/_130sdp"
+                    android:layout_height="@dimen/_150sdp"
+                    android:id="@+id/card_listening"
+                    android:layout_toRightOf="@id/card_reading"
+                    android:layout_margin="@dimen/_5sdp"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    app:cardBackgroundColor="@color/white">
+
+                                        <RelativeLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent">
+                                            <ImageView
+                                                android:layout_width="@dimen/_50sdp"
+                                                android:layout_height="@dimen/_50sdp"
+                                                android:id="@+id/icon_listening"
+                                                android:src="@drawable/icon_crop"
+                                                android:layout_marginTop="@dimen/_10sdp"
+                                                android:layout_marginLeft="@dimen/_10sdp"/>
+
+                                            <TextView
+                                                android:id="@+id/tv_profitable_crops"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_below="@id/icon_listening"
+                                                android:layout_marginLeft="@dimen/_13sdp"
+                                                android:layout_marginTop="@dimen/_5sdp"
+                                                android:fontFamily="sans-serif-condensed-medium"
+                                                android:text="Profitable Crops"
+                                                android:textSize="@dimen/_16sdp"
+                                                android:textStyle="bold"/>
+                                            <TextView
+                                                android:id="@+id/tv_profitable_crops_description"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_below="@id/tv_profitable_crops"
+                                                android:layout_marginLeft="@dimen/_13sdp"
+                                                android:layout_marginTop="@dimen/_5sdp"
+                                                android:fontFamily="sans-serif-condensed-medium"
+                                                android:text="Profitable Crops for Farmers"
+                                                android:textSize="@dimen/_11sdp"
+                                                android:textStyle="italic"/>
+
+                                        </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="@dimen/_130sdp"
+                    android:layout_height="@dimen/_150sdp"
+                    android:id="@+id/card_speaking"
+                    android:layout_below="@id/card_reading"
+                    android:layout_margin="@dimen/_5sdp"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    app:cardBackgroundColor="@color/white">
+                                        <RelativeLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent">
+                                            <ImageView
+                                                android:layout_width="@dimen/_50sdp"
+                                                android:layout_height="@dimen/_50sdp"
+                                                android:id="@+id/icon_speaking"
+                                                android:src="@drawable/icon_budget"
+                                                android:layout_marginTop="@dimen/_10sdp"
+                                                android:layout_marginLeft="@dimen/_10sdp"/>
+
+                                            <TextView
+                                                android:id="@+id/tv_budget_tracking"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_below="@id/icon_speaking"
+                                                android:layout_marginLeft="@dimen/_13sdp"
+                                                android:layout_marginTop="@dimen/_5sdp"
+                                                android:fontFamily="sans-serif-condensed-medium"
+                                                android:text="Budget Tracking"
+                                                android:textSize="@dimen/_16sdp"
+                                                android:textStyle="bold"/>
+                                            <TextView
+                                                android:id="@+id/tv_budget_tracking_description"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_below="@id/tv_budget_tracking"
+                                                android:layout_marginLeft="@dimen/_13sdp"
+                                                android:layout_marginTop="@dimen/_5sdp"
+                                                android:fontFamily="sans-serif-condensed-medium"
+                                                android:text="Tracking Annual Activities"
+                                                android:textSize="@dimen/_11sdp"
+                                                android:textStyle="italic"/>
+
+                                        </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="@dimen/_130sdp"
+                    android:layout_height="@dimen/_150sdp"
+                    android:id="@+id/card_fun"
+                    android:layout_toRightOf="@id/card_reading"
+                    android:layout_margin="@dimen/_5sdp"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    android:layout_below="@id/card_listening"
+                    app:cardBackgroundColor="@color/white">
+
+                                        <RelativeLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent">
+                                            <ImageView
+                                                android:layout_width="@dimen/_50sdp"
+                                                android:layout_height="@dimen/_50sdp"
+                                                android:id="@+id/icon_fun"
+                                                android:src="@drawable/icon_community"
+                                                android:layout_marginTop="@dimen/_10sdp"
+                                                android:layout_marginLeft="@dimen/_10sdp"/>
+
+                                            <TextView
+                                                android:id="@+id/tv_community"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_below="@id/icon_fun"
+                                                android:layout_marginLeft="@dimen/_13sdp"
+                                                android:layout_marginTop="@dimen/_5sdp"
+                                                android:fontFamily="sans-serif-condensed-medium"
+                                                android:text="Community"
+                                                android:textSize="@dimen/_16sdp"
+                                                android:textStyle="bold"/>
+                                            <TextView
+                                                android:id="@+id/tv_community_description"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_below="@id/tv_community"
+                                                android:layout_marginLeft="@dimen/_13sdp"
+                                                android:layout_marginTop="@dimen/_5sdp"
+                                                android:fontFamily="sans-serif-condensed-medium"
+                                                android:text="Connect With the Peoples"
+                                                android:textSize="@dimen/_11sdp"
+                                                android:textStyle="italic"/>
+
+                                        </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/f_icon_ai_assistant"
+        android:src="@drawable/icon_assistants"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/_15sdp"/>
+
+</RelativeLayout>
