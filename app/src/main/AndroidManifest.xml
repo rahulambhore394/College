@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -17,6 +17,9 @@
         android:theme="@style/Theme.AgriDeal"
         tools:targetApi="31">
         <activity
+            android:name=".SplashActivity"
+            android:exported="false" />
+        <activity
             android:name=".ChatBoxActivity"
             android:exported="false" />
         <activity
@@ -27,11 +30,9 @@
             android:exported="false" />
         <activity
             android:name=".CommunityActivity"
-            android:exported="false" />
-<!--        <activity-->
-<!--            android:name="com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView"-->
-<!--            android:configChanges="orientation|screenSize|keyboardHidden"/>-->
-
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name="com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView" -->
+        <!-- android:configChanges="orientation|screenSize|keyboardHidden"/> -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -41,7 +42,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>
