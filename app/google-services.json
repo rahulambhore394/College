@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "661544641032",
+    "project_id": "agrideal-a0150",
+    "storage_bucket": "agrideal-a0150.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:661544641032:android:c39fc5ecfad73fd45027bd",
+        "android_client_info": {
+          "package_name": "com.developer_rahul.agrideal"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDA8FBeat0l8w-OReGuZZ250o4lIXcyGRE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -20,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
+import androidx.cardview.widget.CardView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -31,20 +32,22 @@ import com.developer_rahul.agrideal.R;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
 public class HomeFragment extends Fragment {
 
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
-    private TextView tvWeather,tvCity;
+    private TextView tvWeather, tvCity, tvDate;
     private ImageView imgWeather;
+    private CardView weatherCard;
     private FusedLocationProviderClient fusedLocationClient;
 
     private final String API_KEY = "dab3af44de7d24ae7ff86549334e45bd";  // Replace with your OpenWeather API Key
@@ -57,7 +60,9 @@ public class HomeFragment extends Fragment {
         // Initialize UI elements
         tvWeather = view.findViewById(R.id.tvTemperature);
         tvCity = view.findViewById(R.id.tvCity);
+        tvDate = view.findViewById(R.id.tvDate);
         imgWeather = view.findViewById(R.id.imgWeather);
+        weatherCard = view.findViewById(R.id.card_weather);
 
         // Initialize Location Provider
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity());
@@ -85,13 +90,13 @@ public class HomeFragment extends Fragment {
 
         // Fetch weather and location automatically
         getCurrentLocation();
+        setCurrentDate();
 
         return view;
     }
 
     @SuppressLint("MissingPermission")
     private void getCurrentLocation() {
-        // Check for location permission
         if (ActivityCompat.checkSelfPermission(requireActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
                 ActivityCompat.checkSelfPermission(requireActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
@@ -99,7 +104,6 @@ public class HomeFragment extends Fragment {
             return;
         }
 
-        // Get last known location
         fusedLocationClient.getLastLocation().addOnSuccessListener(requireActivity(), new OnSuccessListener<Location>() {
             @Override
             public void onSuccess(Location location) {
@@ -139,24 +143,20 @@ public class HomeFragment extends Fragment {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             JSONObject main = jsonObject.getJSONObject("main");
-                            JSONObject wind = jsonObject.getJSONObject("wind");
                             JSONObject weather = jsonObject.getJSONArray("weather").getJSONObject(0);
 
-                            String temperature = main.getString("temp") + "°C";
-                            String humidity = "Humidity: " + main.getString("humidity") + "%";
-                            String windSpeed = "Wind: " + wind.getString("speed") + " m/s";
-                            String description = weather.getString("description");
-                            String icon = weather.getString("icon");
+                            double temp = main.getDouble("temp");
+                            String temperature = String.format(Locale.US, "%.1f°C", temp);
+                            String description = weather.getString("main");
 
-                            String weatherInfo = cityName;
-
-
-                            tvCity.setText(weatherInfo);
+                            tvCity.setText(cityName);
                             tvWeather.setText(temperature);
 
-                            // Load Weather Icon
-                            String iconUrl = "https://openweathermap.org/img/w/" + icon + ".png";
-                            Picasso.get().load(iconUrl).into(imgWeather);
+                            // Set custom weather icon
+                            setWeatherIcon(description);
+
+                            // Change background color based on weather
+                            setWeatherBackground(description);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -175,16 +175,57 @@ public class HomeFragment extends Fragment {
         requestQueue.add(stringRequest);
     }
 
-    // Handle permission result
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                getCurrentLocation();
-            } else {
-                Toast.makeText(getActivity(), "Location permission denied!", Toast.LENGTH_SHORT).show();
-            }
+    private void setWeatherIcon(String description) {
+        switch (description.toLowerCase()) {
+            case "clear":
+            case "clear sky":
+                imgWeather.setImageResource(R.drawable.icon_sun);
+                break;
+            case "clouds":
+            case "few clouds":
+            case "scattered clouds":
+                imgWeather.setImageResource(R.drawable.icon_clouds);
+                break;
+            case "rain":
+            case "shower rain":
+                imgWeather.setImageResource(R.drawable.icon_rain);
+                break;
+            case "thunderstorm":
+                imgWeather.setImageResource(R.drawable.icon_thunderstrom);
+                break;
+            case "snow":
+                imgWeather.setImageResource(R.drawable.icon_snow);
+                break;
+            default:
+                imgWeather.setImageResource(R.drawable.icon_default);
+                break;
         }
+    }
+
+    private void setWeatherBackground(String description) {
+        switch (description.toLowerCase()) {
+            case "clear":
+            case "clear sky":
+                weatherCard.setBackgroundResource(R.drawable.bg_sunny);
+                break;
+            case "clouds":
+            case "few clouds":
+            case "scattered clouds":
+                weatherCard.setBackgroundResource(R.drawable.bg_cloudy);
+                break;
+            case "rain":
+            case "shower rain":
+                weatherCard.setBackgroundResource(R.drawable.bg_rainy);
+                break;
+            default:
+                weatherCard.setBackgroundResource(R.drawable.bg_default);
+                break;
+        }
+    }
+
+    private void setCurrentDate() {
+        SimpleDateFormat sdf = new SimpleDateFormat("EEEE, dd MMM yyyy", Locale.getDefault());
+        String currentDate = sdf.format(new Date());
+        tvDate.setText(currentDate);
     }
 }

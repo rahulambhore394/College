@@ -11,41 +11,27 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_50sdp"
         android:elevation="4dp" />
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/customSearchView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_5sdp"
-        android:background="@drawable/search_background"
-        android:iconifiedByDefault="false"
-        android:hint="Find a language, course"
-        android:layout_below="@id/toolbar"
-        app:iconifiedByDefault="false"
-        app:queryBackground="@android:color/transparent"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp" />
 
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/customSearchView"
+        android:layout_below="@id/toolbar"
         android:layout_centerHorizontal="true">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             >
-
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_weather"
-                android:layout_width="@dimen/_130sdp"
+                android:layout_width="match_parent"
                 android:layout_height="@dimen/_130sdp"
                 android:layout_margin="16dp"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="8dp"
                 android:layout_alignParentLeft="true"
-                android:backgroundTint="#E6EAE3F4">
+                >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -54,10 +40,10 @@
 
                     <TextView
                         android:id="@+id/tvWeatherInfo"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="20sp"
-                        android:text="Weather Info"
+                        android:textSize="22sp"
+                        android:text="Weather"
                         android:gravity="center"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentLeft="true"
@@ -65,64 +51,51 @@
 
                     <TextView
                         android:id="@+id/tvCity"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:text="City"
+                        android:textSize="@dimen/_20sdp"
+                        android:text="Delhi"
                         android:gravity="center"
+                        android:fontFamily="sans-serif-condensed-medium"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/_6sdp"
+                        android:layout_marginTop="@dimen/_28sdp"
                         android:layout_below="@id/tvWeatherInfo"/>
+
+                    <TextView
+                        android:id="@+id/tvDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_14sdp"
+                        android:text="26/02/2025"
+                        android:gravity="center"
+                        android:fontFamily="sans-serif-condensed-medium"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/_6sdp"
+                        android:layout_below="@id/tvCity"
+                        />
+
 
 
                     <TextView
                         android:id="@+id/tvTemperature"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:text="29.52.C"
-                        android:gravity="center"
-                        android:layout_below="@id/tvCity"/>
-
+                        android:textSize="@dimen/_40sdp"
+                        android:text="29"
+                        android:fontFamily="sans-serif-condensed-medium"
+                        android:layout_below="@id/tvWeatherInfo"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_toRightOf="@id/imgWeather"
+                        />
                     <ImageView
                         android:id="@+id/imgWeather"
                         android:layout_width="@dimen/_50sdp"
                         android:layout_height="@dimen/_50sdp"
-                        android:layout_below="@id/tvTemperature"/>
-
-
-                </RelativeLayout>
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_budget"
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="@dimen/_130sdp"
-                android:layout_margin="16dp"
-                app:cardCornerRadius="16dp"
-                android:layout_alignParentRight="true"
-                app:cardElevation="8dp"
-                android:backgroundTint="#E6EAE3F4">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp">
-
-                    <TextView
-                        android:id="@+id/tvCurrentBudget"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:text="Weather Info"
-                        android:gravity="center"
-                        android:padding="10dp"/>
-
-                    <TextView
-                        android:id="@+id/tvBudgetAmount"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:text="Weather Info"
-                        android:gravity="center"
-                        android:padding="10dp"/>
+                        android:src="@drawable/cloudy_icon"
+                        android:layout_below="@id/tvWeatherInfo"
+                        android:layout_margin="@dimen/_6sdp"
+                        />
 
 
                 </RelativeLayout>
@@ -132,7 +105,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_lessons"
-                android:text="Your Lessons"
+                android:text=""
                 android:textStyle="bold"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:layout_below="@id/card_weather"

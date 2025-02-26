@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment;
 import com.developer_rahul.agrideal.AgriNewsFragment.AgriNewsFragment;
 import com.developer_rahul.agrideal.HomeFragment.HomeFragment;
 import com.developer_rahul.agrideal.Learn.LearnFragment;
-import com.developer_rahul.agrideal.ProfileFragment.ProfileFragment;
+import com.developer_rahul.agrideal.ProfileFragment.FarmerProfileFragment;
 import com.developer_rahul.agrideal.SaleFragment.SaleFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private final HomeFragment homeFragment = new HomeFragment();
     private final AgriNewsFragment agriNewsFragment = new AgriNewsFragment();
     private final LearnFragment learnFragment = new LearnFragment();
-    private final ProfileFragment profileFragment = new ProfileFragment();
+    private final FarmerProfileFragment farmerProfileFragment = new FarmerProfileFragment();
     private final SaleFragment saleFragment = new SaleFragment();
 
     @Override
@@ -46,8 +46,8 @@ public class MainActivity extends AppCompatActivity {
             selectedFragment = agriNewsFragment;
         } else if (itemId == R.id.navigation_learn_fragment) {
             selectedFragment = learnFragment;
-        } else if (itemId == R.id.navigation_profile_fragment) {
-            selectedFragment = profileFragment;
+        } else if (itemId == R.id.navigation_farmer_profile_fragment) {
+            selectedFragment = farmerProfileFragment;
         } else if (itemId == R.id.navigation_sale_fragment) {
             selectedFragment = saleFragment;
         }

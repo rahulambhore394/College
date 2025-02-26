@@ -27,7 +27,7 @@
         app:showAsAction="always"/>
 
     <item
-        android:id="@+id/navigation_profile_fragment"
+        android:id="@+id/navigation_farmer_profile_fragment"
         android:icon="@drawable/icon_user"
         android:title="Profile"
         app:showAsAction="always"/>

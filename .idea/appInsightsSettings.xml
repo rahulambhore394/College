@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.developer_rahul.agrideal" />
+                  <option name="mobileSdkAppId" value="1:661544641032:android:c39fc5ecfad73fd45027bd" />
+                  <option name="projectId" value="agrideal-a0150" />
+                  <option name="projectNumber" value="661544641032" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
